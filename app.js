@@ -12,7 +12,7 @@ const dataFolderPath = path.join(__dirname);
 const pool = mariadb.createPool({
     host: "localhost",
     user: "root",
-    password: "A68398k2",
+    password: "your_password",
     database: "entrega8",
     connectionLimit: 5
 });
