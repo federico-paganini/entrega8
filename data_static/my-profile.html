@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link href="css/styles.css" rel="stylesheet">
+  <script src="js/lightdarkmode.js"></script>
+  <script src="js/user.js"></script>
+
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" sizes="16x16 32x32">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary p-1">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-between mt-lg-0 mt-2">
+          <li class="nav-item">
+            <a class="nav-link ms-lg-0 ms-2" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-lg-0 ms-2" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-lg-0 ms-2" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item" id="usuario">
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-12 col-md-3 profilecolumn">
+          <div class="profile-img d-flex">
+            <span id="changebtn" type="button" data-bs-toggle="modal" data-bs-target="#profileimgs">
+              <h2><i class="bi bi-plus-circle-dotted btn-onimg"></h1></i>
+            </span>
+
+            <!-- Modal Imágenes de Perfil -->
+            <div class="modal fade" id="profileimgs" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+              aria-labelledby="profileimgs" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="profileimgs">Elegir foto de perfil</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div id="profileimgoptions" class="row justify-content-between">
+
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="container">
+                      <div class="input-group">
+                        <label class="input-group-text" for="new-profileimg"><i class="bi bi-images"></i></label>
+                        <input type="file" name="filebox" class="form-control" id="new-profileimg" accept="image/*">
+                        <button type="button" class="btn btn-primary" id="save-img">Guardar imágen</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <img id="profilesimg" src="" class="img-fluid" alt="Default">
+          </div>
+        </div>
+        <div class="col-12 col-md-9">
+          <h1>Perfil</h1>
+          <hr>
+          <div class="row" id="userdata">
+
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="user-name" class="form-label">Primer nombre</label>
+              <input type="text" class="form-control datosfijos" id="user-name">
+              <div id="alerterror1userform" class="valid-feedback">
+              </div>
+            </div>
+
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="user-sname" class="form-label">Segundo nombre</label>
+              <input type="sting" class="form-control datosfijos" id="user-sname">
+            </div>
+
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="user-srname" class="form-label">Primer apellido</label>
+              <input type="sting" class="form-control datosfijos " id="user-srname">
+
+              <div id="alerterror3userform" class="valid-feedback">
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="user-ssrname" class="form-label">Segundo apellido</label>
+              <input type="sting" class="form-control datosfijos" id="user-ssrname">
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="user-name" class="form-label">E-mail</label>
+              <input type="text" class="form-control datosfijos " id="user-mail">
+              <div id="alerterror4userform" class="valid-feedback">
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 mb-3">
+              <label for="user-sname" class="form-label">Teléfono de contacto</label>
+              <input type="int" class="form-control datosfijos " id="user-phone">
+              <div id="alerterror2userform" class="valid-feedback">
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="row justify-content-between">
+                <div class="col">
+                  <button class="btn btn-link" id="edit-userinfo">Editar datos de usuario</button>
+                </div>
+                <div class="col">
+                  <button class="btn btn-primary oculto" id="save-userchanges">Guardar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="js/init.js"></script>
+  <script src="js/my-profile.js"></script>
+</body>
+
+</html>

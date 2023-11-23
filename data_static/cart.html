@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <script src="js/lightdarkmode.js"></script>
+  <script src="js/user.js"></script>
+  
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" sizes="16x16 32x32">
+</head>
+
+<body>
+
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary p-1">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-between mt-lg-0 mt-2">
+          <li class="nav-item">
+            <a class="nav-link ms-lg-0 ms-2" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-lg-0 ms-2" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-lg-0 ms-2" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item" id="usuario">
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--Cuerpo del HTML-->
+  <main>
+    <div class="container">
+      <h1 class="text-center mt-2 mb-5">Carrito de Compras</h1>
+      <br><br>
+      <!--Tabla de productos ingresados al carrito-->
+      <h3 class="mb-3 ms-2"><i class="bi bi-cart-check-fill"></i> Articulos a comprar:</h3>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle table-striped text-center">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Total</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="productosCarrito"></tbody>
+          <tfoot>
+          </tfoot>
+        </table>
+      </div>
+      <hr>
+      <!--Método de envío-->
+      <div class="ms-2">
+        <h3 class="mt-1"><i class="bi bi-filter-right"></i><i class="bi bi-truck"></i> Tipo de Envío</h3>
+        <div id="checkboxenvio" class="form-check ms-3">
+          <div class="mt-3">
+            <input id="envioOpc1" class="form-check-input" checked name="opcionCompra" type="radio" value="1" />&nbsp;
+            Premium 2 a 5 dias (15%)
+          </div>
+          <div>
+            <input id="envioOpc2" class="form-check-input" name="opcionCompra" type="radio" value="2" />&nbsp;
+            Express
+            5 a 8 dias (7%)
+          </div>
+          <div>
+            <input id="envioOpc3" class="form-check-input" name="opcionCompra" type="radio" value="3" />&nbsp;
+            Standard 12 a 15 dias (5%)
+          </div>
+        </div>
+      </div>
+      <hr>
+      <h3 class="ms-2 mb-3"><i class="bi bi-geo-alt-fill"></i> Direccion de Envio</h3>
+
+      <!--tarjeta con datos de envío y destinatario-->
+      <div class="ms-sm-2">
+        <div class="card mb-3 bg-body-tertiary" style="max-width: 500px;">
+          <div class="row g-0">
+            <div class="col-1">
+              <span class="rounded-start card-border"></span>
+            </div>
+            <div class="col-11">
+              <div class="ms-3 card-body">
+                <!--Aquí se agrega direccion y datos de usuario-->
+                <div id="sendAdress">
+
+                </div>
+                <div id="contactInfo">
+
+                </div>
+                <a class="btn btn-link btn-sm p-0 m-0" data-bs-toggle="modal" href="#exampleModalToggle"
+                  role="button">Modificar dirección de envío / Contacto</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Primer modal para cambiar la dirección de envío-->
+      <div class="modal fade" id="exampleModalToggle" aria-hidden="true" data-bs-backdrop="static"
+        aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleLabel">Modificar dirección</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h6 class="mb-3">Seleccionar nueva dirección</h6>
+              <!--Aquí se ingresan las direcciones posibles de envío-->
+              <div id="modifyadress">
+
+              </div>
+              <button class="btn btn-outline-primary btn-sm" data-bs-target="#exampleModalToggle3"
+                data-bs-toggle="modal"><i class="bi bi-plus-square"></i> Agregar nueva dirección</button>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-outline-danger btn-sm" data-bs-target="#exampleModalToggle2"
+                data-bs-toggle="modal">Modificar datos de contacto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Modal para modificar los datos de contacto (Usuario - destinatario)-->
+      <div class="modal fade" id="exampleModalToggle2" data-bs-backdrop="static" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleLabel2">Modificar datos de contacto</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!--Aquí se ingresa o se modifica un número de contacto-->
+              <div>
+                <h6 class="text-center fw-bold">Cambiar número de contacto</h6>
+                <select class="form-select text-muted mb-3" name="ccel" id="ncontact">
+
+
+                </select>
+                <div class="row">
+                  <div class="col-auto">
+                    <button id="addnum" class="btn btn-outline-primary">Agregar número</button>
+                  </div>
+                  <div class="col-auto">
+                    <input type="tel" name="nwphone" id="nuevophone" minlength="8" class="form-control"
+                      placeholder="Nuevo número">
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <!--Aquí se cambia la persona que encarga - recibe el paquete-->
+              <h6 class="text-center fw-bold">Cambiar destinatario</h6>
+              <div class="row mb-3">
+                <div class="col-6">
+                  <input type="text" name="newcname" id="New-Cname" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="col-6">
+                  <input type="text" name="newcsurn" id="New-Csn" class="form-control" placeholder="Apellido">
+                </div>
+              </div>
+              <button class="btn btn-warning btn-sm" id="savedelivch">Guardar</button>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-outline-danger btn-sm" data-bs-target="#exampleModalToggle"
+                data-bs-toggle="modal">Modificar dirección</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Modal para agregar una nueva dirección de envío-->
+      <div class="modal fade" id="exampleModalToggle3" data-bs-backdrop="static" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel3" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleLabel3">Ingresar nueva dirección de envío</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="nuevoenvio">
+                <div>
+                  <select class="form-select text-muted mb-3" name="dep" id="Departamento">
+                    <option hidden selected>Departamento</option>
+                    <option disabled>--Elige un Departamento--</option>
+                    <option value="Artigas">Artigas</option>
+                    <option value="Canelones">Canelones</option>
+                    <option value="CerroLargo">Cerro Largo</option>
+                    <option value="Colonia">Colonia</option>
+                    <option value="Durazno">Durazno</option>
+                    <option value="Flores">Flores</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Lavalleja">Lavalleja</option>
+                    <option value="Maldonado">Maldonado</option>
+                    <option value="Montevideo">Montevideo</option>
+                    <option value="Paysandu">Paysandú</option>
+                    <option value="Rionegro">Río Negro</option>
+                    <option value="Rivera">Rivera</option>
+                    <option value="Rocha">Rocha</option>
+                    <option value="Salto">Salto</option>
+                    <option value="Sanjose">San José</option>
+                    <option value="Soriano">Soriano</option>
+                    <option value="Tacuarembo">Tacuarembó</option>
+                    <option value="Treintaytres">Treinta y Tres</option>
+                  </select>
+                </div>
+                <div class="form-group mb-3">
+                  <input type="text" name="newcity" id="New-City" class="form-control" placeholder="Ciudad" required>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-8">
+                    <input type="text" name="newdir" id="New-Dir" class="form-control" placeholder="Calle" required>
+                  </div>
+                  <div class="col-4">
+                    <input type="number" name="newnum" id="New-Num" class="form-control" placeholder="Num." required>
+                  </div>
+                </div>
+
+                <div class="form-check mb-3 pe-4">
+                  <div class="row justify-content-sm-between justify-content-center d-flex">
+                    <div class="col-auto col-sm-auto justify-content-sm-start justify-content-end d-flex mt-2 mt-sm-0">
+                      <label class="me-2 me-md-0">
+                        <input type="radio" name="dirtype" value="house" required>
+                        <span>Casa</span>
+                      </label>
+                    </div>
+                    <div
+                      class="col-auto col-sm-4 col-md-auto justify-content-sm-center justify-content-start d-flex mt-2 mt-sm-0">
+                      <label>
+                        <input type="radio" name="dirtype" value="building">
+                        <span>Edicificio</span>
+                      </label>
+                    </div>
+                    <div class="col-12 col-sm-auto justify-content-sm-end justify-content-center d-flex mt-2 mt-sm-0">
+                      <label>
+                        <input type="radio" name="dirtype" value="work">
+                        <span>Trabajo</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <input type="text" name="infoadd" id="infoadd" class="form-control mb-3"
+                  placeholder="Otras indicaciones (Opcional)" maxlength="300">
+                <button type="submit" class="btn btn-warning btn-sm">Guardar</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary btn-sm" data-bs-target="#exampleModalToggle"
+                data-bs-toggle="modal">Volver</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+      <ul class="list-group">
+        <h4 class="fw-bold ms-2"><i class="bi bi-cash-stack"></i> COSTOS</h4>
+        <li class="list-group-item">
+          <div class="justify-content-between d-flex">
+            <h5>Subtotal ($)</h5>
+            <span id="Subtotal"></span>
+          </div>
+          <p class="text-muted">Costo unitario del producto por cantidad</p>
+        </li>
+        <li class="list-group-item">
+          <div class="justify-content-between d-flex">
+            <h5>Costo de Envio ($)</h5>
+            <span id="costoEnvio"></span>
+          </div>
+          <p class="text-muted">Segun tipo de envío</p>
+        </li>
+
+        <li class="list-group-item">
+          <div class="justify-content-between d-flex">
+            <h5 class="fw-bold">Total ($)</h5>
+            <span id="totalFinal"></span>
+          </div>
+        </li>
+      </ul>
+      <div class="mt-5 ms-3">
+        <h4 class="fw-bold"><i class="bi bi-wallet2"></i> FORMA DE PAGO</h4>
+        <div>
+          <div id="MensajePago">Por favor, indique una forma de pago:</div>
+          <button type="button" id="BotonFormaPago" class="btn btn-primary mt-2">
+            Seleccionar forma de pago
+          </button>
+          <div class="alert alert-success" id="alert" hidden role="alert">
+            SU COMPRA HA SIDO REALIZADA CON EXTIO!!! SIGUE GASTANDO PLATA CON NOSOTROS 
+          </div>
+          <div class="alert alert-danger" id="badalert" role="alert" hidden>
+            Falta elegir el metodo de pago.
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="d-flex justify-content-center mt-3">
+        <button id="verificar" class="btn btn-primary btn-lg" style="width: 80%;">Finalizar compra</button>
+      </div>
+    </div>
+  </main>
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>
+        Este sitio forma parte de
+        <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>
