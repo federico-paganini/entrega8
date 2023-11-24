@@ -45,9 +45,10 @@ app.post('/verifylogin', express.json(), async (req, res) => {
 });
 
 const verificacion = (req, res, next) => {
-    const token = req.header('Autorización');
-    if (token === undefined) {
-        return res.status(400).json({ message: 'Error, los datos deben ser correctos para ingresar. Verifique sus datos.' })
+    const token = req.header('Authorization');
+    console.log(token);
+    if (token == undefined) {
+        return res.status(401).json({ message: 'Error, los datos deben ser correctos para ingresar. Verifique sus datos.' })
     }
 
     try {
@@ -57,6 +58,7 @@ const verificacion = (req, res, next) => {
     }
 
     catch (error) {
+        console.log(error);
         res.status(400).json({ message: 'Verificación incorrecta' });
     }
 };
@@ -74,7 +76,7 @@ app.post("/registrar", express.json(), async (req, res) => {
         console.log(error);
         res.status(500).json({ message: "Se rompió el servidor" });
     } finally {
-        if (conn) conn.release(); //release to pool
+        if (conn) conn.release();
     }
 });
 
@@ -108,7 +110,7 @@ app.post('/insertproduct', express.json(), async (req, res) => {
         console.log(error);
         res.status(500).json({ message: "Se rompió el servidor" });
     } finally {
-        if (conn) conn.release(); //release to pool
+        if (conn) conn.release();
     }
 });
 
@@ -123,13 +125,13 @@ app.put('/modifycart', express.json(), async (req, res) => {
         console.log(error);
         res.status(500).json({ message: "Se rompió el servidor" });
     } finally {
-        if (conn) conn.release(); //release to pool
+        if (conn) conn.release();
     }
 });
 
 app.get('/cart', verificacion, express.json(), async (req, res) => {
 
-    res.json();
+    res.json({ message: 'Acceso autorizado' });
 });
 
 

@@ -245,7 +245,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     })
                         .then(response => response.json())
                         .then(data => {
-                            localStorage.setItem("token", JSON.stringify(data.token))
+                            console.log(data.token);
+                            localStorage.setItem("token", data.token)
                         })
                         .catch(error => {
                             console.error("Error:", error);

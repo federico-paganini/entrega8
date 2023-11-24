@@ -73,6 +73,24 @@ function eliminarProducto(botonEliminar) {
 
 let seleccionoForma = false;
 
+window.onload = function () {
+  let token = localStorage.getItem("token");
+  fetch('http://localhost:3000/cart', {
+    method: 'GET',
+    headers: {
+      'Authorization': token
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.message);
+    })
+    .catch((error) => {
+      console.error("La solicitud no se completó correctamente", error);
+    })
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
   /* Fetch 77 - 219 */
   fetch(`https://japceibal.github.io/emercado-api/user_cart/25801.json`)
