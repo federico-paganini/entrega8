@@ -83,7 +83,35 @@ window.onload = function () {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.message);
+      if (data.message == "Token expirado, cierre sesión e inicie nuevamente") {
+        alert(data.message);
+        document.title = "Error 418 (I'm a teapot)!?";
+        document.getElementById("htmlcontent").innerHTML = `
+        <div class="container">
+          <div class="row align-items-center justify-content-center mt-5">
+              <div class="col-12 col-md-auto">
+                  <p>
+                      <b>418.</b>
+                      <span class="text-muted">I'm a teapot</span>
+                  </p>
+                  <p class="m-0 p-0">The requested entity body is short and stout. </p>
+                  <p class="text-muted m-0 p-0">Tip me over and pour me out.</p>
+              </div>
+              <div class="col-12 col-md-auto">
+                  <img src="../data_static/img/google-teapot-1409054613.gif">
+              </div>
+          </div>
+          <div>
+            <h1 class="text-center mt-5">Grupo 3 estuvo aquí</h1>
+          </div>
+        </div>
+      `;
+        setTimeout(function () {
+          window.location.href = "index.html";
+        }, 5000);
+      } else {
+        console.log(data.message);
+      }
     })
     .catch((error) => {
       console.error("La solicitud no se completó correctamente", error);

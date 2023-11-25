@@ -12,7 +12,7 @@ const dataFolderPath = path.join(__dirname);
 const pool = mariadb.createPool({
     host: "localhost",
     user: "root",
-    password: "your_password",
+    password: "A68398k2",
     database: "entrega8",
     connectionLimit: 5
 });
@@ -29,7 +29,7 @@ app.post('/verifylogin', express.json(), async (req, res) => {
 
         } else {
 
-            const token = jwt.sign({ userId: user.Id }, 'secretKey', { expiresIn: '1h' });
+            const token = jwt.sign({ userId: user.Id }, 'secretKey', { expiresIn: '1m' });
             res.json({ token });
 
         }
@@ -46,10 +46,10 @@ app.post('/verifylogin', express.json(), async (req, res) => {
 
 const verificacion = (req, res, next) => {
     const token = req.header('Authorization');
-    console.log(token);
-    if (token == undefined) {
+
+    if (!token) {
         return res.status(401).json({ message: 'Error, los datos deben ser correctos para ingresar. Verifique sus datos.' })
-    }
+    } 
 
     try {
         const verificationUser = jwt.verify(token, 'secretKey');
@@ -58,8 +58,7 @@ const verificacion = (req, res, next) => {
     }
 
     catch (error) {
-        console.log(error);
-        res.status(400).json({ message: 'Verificación incorrecta' });
+        res.status(418).json({ message: 'Token expirado, cierre sesión e inicie nuevamente' });
     }
 };
 
@@ -73,7 +72,6 @@ app.post("/registrar", express.json(), async (req, res) => {
 
         res.status(201).json({ message: 'Se creó el usuario con el id: ' + parseInt(response.insertId) });
     } catch (error) {
-        console.log(error);
         res.status(500).json({ message: "Se rompió el servidor" });
     } finally {
         if (conn) conn.release();
@@ -107,7 +105,6 @@ app.post('/insertproduct', express.json(), async (req, res) => {
             res.status(201).json({ message: 'Se modificó la cantidad de productos en el carrito' });
         }
     } catch (error) {
-        console.log(error);
         res.status(500).json({ message: "Se rompió el servidor" });
     } finally {
         if (conn) conn.release();
@@ -122,7 +119,6 @@ app.put('/modifycart', express.json(), async (req, res) => {
         conn = await pool.getConnection();
 
     } catch (error) {
-        console.log(error);
         res.status(500).json({ message: "Se rompió el servidor" });
     } finally {
         if (conn) conn.release();
