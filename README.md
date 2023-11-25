@@ -6,7 +6,7 @@ ENTREGA 8 - Grupo 3.
 
 Codigos CREATE para MaríaDB.
 
-1. Crear una base de datos con el nombre entrega8
+1. Crear una base de datos con el nombre entrega8: CREATE DATABASE `entrega8` /*!40100 COLLATE 'utf8mb4_general_ci' */;
 
 2. Utilizar los siguientes códigos CREATE para las tablas.
 
