@@ -23,12 +23,12 @@ function cambiarFondo() {
 
     if (width > height) {
         background.style.background =
-            'url("../img/Fondo_login.png"), linear-gradient(to left, #ff914d, #ff3131)';
+            'url("../data_static/img/Fondo_login.png"), linear-gradient(to left, #ff914d, #ff3131)';
         background.style.backgroundRepeat = "no-repeat";
         background.style.backgroundSize = "contain";
     } else {
         background.style.background =
-            'url("../img/fondo_login_sm.jpg"), linear-gradient(to left, #ff914d, #ff6740)';
+            'url("../data_static/img/fondo_login_sm.jpg"), linear-gradient(to left, #ff914d, #ff6740)';
         background.style.backgroundRepeat = "no-repeat";
         background.style.backgroundSize = "contain";
     }

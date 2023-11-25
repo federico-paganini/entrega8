@@ -27,12 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const height = window.innerHeight;
 
         if (width > height) {
-            jumbotron.style.background = 'url("../img/cover_back.png")';
+            jumbotron.style.background = 'url("../data_static/img/cover_back.png")';
             jumbotron.style.backgroundRepeat = 'no-repeat';
             jumbotron.style.backgroundPosition = 'center';
             jumbotron.style.backgroundSize = 'contain';
         } else {
-            jumbotron.style.background = 'url("../img/cover_backsm.png")';
+            jumbotron.style.background = 'url("../data_static/img/cover_backsm.png")';
             jumbotron.style.backgroundRepeat = 'no-repeat';
             jumbotron.style.backgroundPosition = 'center';
             jumbotron.style.backgroundSize = 'contain';
