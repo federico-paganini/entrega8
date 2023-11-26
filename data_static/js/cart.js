@@ -121,7 +121,7 @@ window.onload = function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   /* Fetch 124 - 175 */
-  fetch(`https://japceibal.github.io/emercado-api/user_cart/-25801.json`)
+  fetch(`https://japceibal.github.io/emercado-api/user_cart/25801.json`)
     .then((response) => response.json())
     .then((cartData) => {
       cartData.articles.forEach((product) => {
