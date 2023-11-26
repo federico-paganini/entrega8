@@ -99,8 +99,8 @@ app.post('/insertproduct', express.json(), async (req, res) => {
             res.status(201).json({ message: 'Se agregó un producto al carrito' });
         } else {
             const response = await conn.query(`
-            UPDATE carrito (count) 
-            VALUE ("${(product[0].count + 1)}")`);
+            UPDATE carrito SET count = ${(product[0].count + 1)}
+            WHERE name="${pname}" AND username="${username}"`);
 
             res.status(201).json({ message: 'Se modificó la cantidad de productos en el carrito' });
         }
