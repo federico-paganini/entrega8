@@ -120,8 +120,8 @@ window.onload = function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  /* Fetch 77 - 219 */
-  fetch(`https://japceibal.github.io/emercado-api/user_cart/25801.json`)
+  /* Fetch 124 - 175 */
+  fetch(`https://japceibal.github.io/emercado-api/user_cart/-25801.json`)
     .then((response) => response.json())
     .then((cartData) => {
       cartData.articles.forEach((product) => {
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* Añadir tarjeta con dirección de envío 
-  (Modales relacionados y tarjeta 147 - 291) */
+  (Modales relacionados y tarjeta 195 - 337) */
   const adresscard = document.getElementById("sendAdress");
   const contactinfo = document.getElementById("contactInfo");
   const userdata = usuarioActivo;
